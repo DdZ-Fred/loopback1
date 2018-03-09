@@ -5,7 +5,7 @@
     "ACL": 1,
     "RoleMapping": 1,
     "Role": 1,
-    "Product": 6,
+    "Product": 7,
     "Category": 5
   },
   "models": {
@@ -19,7 +19,8 @@
       "2": "{\"name\":\"Coca\",\"price\":1.01,\"categoryId\":1,\"id\":2}",
       "3": "{\"name\":\"Sprite\",\"price\":1.02,\"categoryId\":1,\"id\":3}",
       "4": "{\"name\":\"Desperados\",\"price\":1.04,\"categoryId\":2,\"id\":4}",
-      "5": "{\"name\":\"pow1\",\"price\":50,\"categoryId\":2,\"id\":5}"
+      "5": "{\"name\":\"pow1\",\"price\":50,\"categoryId\":2,\"id\":5}",
+      "6": "{\"name\":\"gibidin\",\"price\":23,\"categoryId\":2,\"id\":6}"
     },
     "Category": {
       "1": "{\"name\":\"My first category\",\"id\":1}",

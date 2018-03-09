@@ -11,10 +11,11 @@ module.exports = function(Product) {
    */
   Product.prototype.buy = function(quantity, callback) {
     if (quantity <= 0) {
-      callback(`Invalid quantity ${quantity}`);
+      return callback(`Invalid quantity ${quantity}`);
     }
 
     const result = {
+      status: `You bought ${quantity} product(s)`,
       code: 200,
       quantity,
     };
@@ -28,7 +29,7 @@ module.exports = function(Product) {
     min: 3,
     // Allows to override the default message
     message: {
-      min: 'should be at least 3 characters',
+      min: 'Name should be at least 3 characters',
     },
   });
   Product.validatesUniquenessOf('name');
@@ -37,8 +38,11 @@ module.exports = function(Product) {
 
   const validatePositiveInteger = function(err) {
     if (!positiveInteger.test(this.price)) {
-      // Represents the validation code
-      err('int.positive');
+      // Represents the validation error code.
+      // If passed, the whole message below isn't sent!
+      // Useful when localization is needed
+      // err('int.positive');
+      err();
     }
   };
 
@@ -49,17 +53,16 @@ module.exports = function(Product) {
 
   function validateMinimalPrice(err, done) {
     const price = this.price;
-
-    process.nextTick(() => {
+    setTimeout(() => {
       const minimalPriceFromDB = 99;
       if (price < minimalPriceFromDB) {
-        err('dbMinimalPrice');
+        err();
       }
       done();
-    });
+    }, 1000);
   }
 
-  // Product.validateAsync('price', validateMinimalPrice, {
-  //   message: 'Price should be higher than the minimal price in the DB',
-  // });
+  Product.validateAsync('price', validateMinimalPrice, {
+    message: 'Price should be higher than the minimal price in the DB',
+  });
 };

@@ -33,7 +33,46 @@ describe('Validation', function() {
     return Product.create({name: 'po', price: 299})
       .then(res => Promise.reject('Product should not be created'))
       .catch(err => {
-        expect(err.message).to.contain('Name should be at least 3 characters');
+         expect(err.message).to.contain('Name should be at least 3 characters');
+        expect(err.statusCode).to.be.equal(422);
       });
   });
+
+  it('should reject a duplicate name', function() {
+    return Promise.resolve()
+      .then(() => Product.create({ name: 'el gato', price: 255 }))
+      .then(() => Product.create({ name: 'el gato', price: 464 }))
+      .then(res => Promise.reject('Product should not be created'))
+      .catch(err => {
+        expect(err.message).to.contain('Details: `name` is not unique');
+        expect(err.statusCode).to.be.equal(422);
+      });
+  });
+
+  it('should reject a price < 0', function() {
+    return Product.create({ name: 'blabla', price: -4})
+      .then(res => Promise.reject('Product should not be created'))
+      .catch(err => {
+        expect(err.message).to.contain('Price should be a positive number.');
+        expect(err.statusCode).to.be.equal(422);
+      });
+  });
+
+  it('should reject a price below the minimum 99', function() {
+    return Product.create({ name: 'Bapo', price: 67 })
+      .then(res => Promise.reject('Product should not be created'))
+      .catch(err => {
+        expect(err.message).to.contain('Price should be higher than the minimal price in the DB');
+        expect(err.statusCode).to.be.equal(422);
+      });
+  });
+
+  it('should store a correct product', function() {
+    return Product.create({ name: 'Correct product', price: 200 })
+      .then(res => {
+        expect(res.name).to.be.equal('Correct product');
+        expect(res.price).to.be.equal(200);
+      })
+  });
+
 });

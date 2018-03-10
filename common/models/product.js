@@ -59,7 +59,7 @@ module.exports = function(Product) {
         err();
       }
       done();
-    }, 1000);
+    }, 0);
   }
 
   Product.validateAsync('price', validateMinimalPrice, {

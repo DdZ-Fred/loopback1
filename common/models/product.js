@@ -2,7 +2,9 @@
 
 module.exports = function(Product) {
 
-  // REMOTE METHODS ARE PROTOTYPE METHODS
+  // #############################################
+  // REMOTE METHODS ARE PROTOTYPE/INSTANCE METHODS
+  // #############################################
 
   /**
    * Buy this product
@@ -23,7 +25,10 @@ module.exports = function(Product) {
     callback(null, result);
   };
 
+  // #############################
   // VALIDATORS ARE STATIC METHODS
+  // #############################
+
   // 1. Built-in methods
   Product.validatesLengthOf('name', {
     min: 3,
@@ -53,6 +58,8 @@ module.exports = function(Product) {
 
   function validateMinimalPrice(err, done) {
     const price = this.price;
+    const category = this.category();
+
     setTimeout(() => {
       const minimalPriceFromDB = 99;
       if (price < minimalPriceFromDB) {
@@ -64,5 +71,23 @@ module.exports = function(Product) {
 
   Product.validateAsync('price', validateMinimalPrice, {
     message: 'Price should be higher than the minimal price in the DB',
+  });
+
+  // ###############
+  // OPERATION HOOKS
+  // ###############
+
+  // See: https://loopback.io/doc/en/lb3/Operation-hooks.html
+  Product.observe('before save', function(ctx, next) {
+    if (ctx.instance && ctx.instance.categoryId) {
+      return Product.app.models.Category
+        .count({ id: ctx.instance.categoryId })
+        .then(res => {
+          if (res < 1) {
+            return Promise.reject('Error adding product to non-existing category');
+          }
+        });
+    }
+    return next();
   });
 };

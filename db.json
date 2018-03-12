@@ -1,16 +1,22 @@
 {
   "ids": {
-    "User": 1,
-    "AccessToken": 1,
+    "User": 3,
+    "AccessToken": 3,
     "ACL": 1,
     "RoleMapping": 1,
     "Role": 1,
-    "Product": 7,
+    "Product": 8,
     "Category": 5
   },
   "models": {
-    "User": {},
-    "AccessToken": {},
+    "User": {
+      "1": "{\"password\":\"$2a$10$Od9S6LdHeXsKUaWfTYWgmOfnpid/2p7eIz/Y0KOm7os86oN.ojKzG\",\"email\":\"myEmail@mail.fr\",\"id\":1}",
+      "2": "{\"password\":\"$2a$10$H46BZG3kOfh0JUnrGNH9HOm0SQFu9LC4kdPTeDr5JcoreOVwmULMu\",\"email\":\"admin@mail.com\",\"id\":2}"
+    },
+    "AccessToken": {
+      "zoOz7f6UywRLyabcnbDNFtpF0WHWiOK3s69oXHhR8PvhtcCcHV5ld8w10x3c0DY5": "{\"id\":\"zoOz7f6UywRLyabcnbDNFtpF0WHWiOK3s69oXHhR8PvhtcCcHV5ld8w10x3c0DY5\",\"ttl\":1209600,\"created\":\"2018-03-12T12:40:19.303Z\",\"userId\":1}",
+      "password": "{\"id\":\"password\",\"userId\":2}"
+    },
     "ACL": {},
     "RoleMapping": {},
     "Role": {},
@@ -19,8 +25,9 @@
       "2": "{\"name\":\"Coca\",\"price\":1.01,\"categoryId\":1,\"id\":2}",
       "3": "{\"name\":\"Sprite\",\"price\":1.02,\"categoryId\":1,\"id\":3}",
       "4": "{\"name\":\"Desperados\",\"price\":1.04,\"categoryId\":2,\"id\":4}",
-      "5": "{\"name\":\"pow1\",\"price\":50,\"categoryId\":2,\"id\":5}",
-      "6": "{\"name\":\"gibidin\",\"price\":23,\"categoryId\":2,\"id\":6}"
+      "5": "{\"name\":\"888\",\"price\":999,\"categoryId\":2,\"id\":5}",
+      "6": "{\"name\":\"gibidin\",\"price\":23,\"categoryId\":2,\"id\":6}",
+      "7": "{\"name\":\"Bapo\",\"price\":764,\"categoryId\":2,\"id\":7}"
     },
     "Category": {
       "1": "{\"name\":\"My first category\",\"id\":1}",

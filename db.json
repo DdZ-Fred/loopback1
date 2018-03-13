@@ -1,12 +1,12 @@
 {
   "ids": {
     "User": 3,
-    "AccessToken": 3,
+    "AccessToken": 4,
     "ACL": 1,
     "RoleMapping": 1,
     "Role": 1,
-    "Product": 8,
-    "Category": 5
+    "Product": 16,
+    "Category": 8
   },
   "models": {
     "User": {
@@ -15,7 +15,8 @@
     },
     "AccessToken": {
       "zoOz7f6UywRLyabcnbDNFtpF0WHWiOK3s69oXHhR8PvhtcCcHV5ld8w10x3c0DY5": "{\"id\":\"zoOz7f6UywRLyabcnbDNFtpF0WHWiOK3s69oXHhR8PvhtcCcHV5ld8w10x3c0DY5\",\"ttl\":1209600,\"created\":\"2018-03-12T12:40:19.303Z\",\"userId\":1}",
-      "password": "{\"id\":\"password\",\"userId\":2}"
+      "password": "{\"id\":\"password\",\"userId\":2}",
+      "ArD7KC1sVM2R5lS5H0WUNDM7kG0yxM03HGNycgCzfEJEdznCiF8UQ45NM7d0iL4X": "{\"id\":\"ArD7KC1sVM2R5lS5H0WUNDM7kG0yxM03HGNycgCzfEJEdznCiF8UQ45NM7d0iL4X\",\"ttl\":1209600,\"created\":\"2018-03-13T21:44:19.872Z\",\"userId\":2}"
     },
     "ACL": {},
     "RoleMapping": {},
@@ -27,13 +28,24 @@
       "4": "{\"name\":\"Desperados\",\"price\":1.04,\"categoryId\":2,\"id\":4}",
       "5": "{\"name\":\"888\",\"price\":999,\"categoryId\":2,\"id\":5}",
       "6": "{\"name\":\"gibidin\",\"price\":23,\"categoryId\":2,\"id\":6}",
-      "7": "{\"name\":\"Bapo\",\"price\":764,\"categoryId\":2,\"id\":7}"
+      "7": "{\"name\":\"Bapo\",\"price\":764,\"categoryId\":2,\"id\":7}",
+      "8": "{\"name\":\"11111\",\"price\":456,\"categoryId\":5,\"id\":8}",
+      "9": "{\"name\":\"22222222\",\"price\":432,\"categoryId\":6,\"id\":9}",
+      "10": "{\"name\":\"333333333\",\"price\":986,\"categoryId\":7,\"id\":10}",
+      "11": "{\"name\":\"4444444\",\"price\":986,\"categoryId\":5,\"id\":11}",
+      "12": "{\"name\":\"5555555\",\"price\":986,\"categoryId\":6,\"id\":12}",
+      "13": "{\"name\":\"66666666666\",\"price\":986,\"categoryId\":6,\"id\":13}",
+      "14": "{\"name\":\"7777777777\",\"price\":986,\"categoryId\":6,\"id\":14}",
+      "15": "{\"name\":\"087865678\",\"price\":986,\"categoryId\":7,\"id\":15}"
     },
     "Category": {
       "1": "{\"name\":\"My first category\",\"id\":1}",
       "2": "{\"name\":\"My second category\",\"id\":2}",
       "3": "{\"name\":\"My 3rd category\",\"id\":3}",
-      "4": "{\"name\":\"My 4th category\",\"id\":4}"
+      "4": "{\"name\":\"My 4th category\",\"id\":4}",
+      "5": "{\"name\":\"Epicerie sucree\",\"id\":5}",
+      "6": "{\"name\":\"Epicerie salee\",\"id\":6}",
+      "7": "{\"name\":\"Creme glacee\",\"id\":7}"
     }
   }
 }
